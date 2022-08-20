@@ -6,6 +6,7 @@ $email = $_POST['email'];
 $tel = $_POST['tel'];
 $message = $_POST['message'];
 ?>
+
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
   <head>

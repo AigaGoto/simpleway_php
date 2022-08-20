@@ -24,22 +24,23 @@
 
         <div class="form-item">
           <p class="form-item-name">名前</p>
-          <input type="text" placeholder="田中太郎" name="fullname" class="form-text">
+          <input type="text" placeholder="田中太郎" name="fullname" class="form-text" required>
         </div>
 
         <div class="form-item">
           <p class="form-item-name">メールアドレス</p>
-          <input type="email" placeholder="aaa@example.com" name="email" class="form-text">
+          <input type="email" placeholder="aaa@example.com" name="email" class="form-text" required>
         </div>
           
         <div class="form-item">
           <p class="form-item-name">電話番号</p>
-          <input type="tel" placeholder="00011112222" name="tel" class="form-text">
+          <input type="tel" placeholder="00011112222" name="tel" class="form-text" 
+            pattern="\d{11}" title="電話番号はハイフン(-)抜きの11桁の数字で記入してください。" required >
         </div>
           
         <div class="form-item">
           <p class="form-item-name">お問い合わせ内容</p>
-          <textarea name="message" rows="8" cols="80" class="m-form-textarea"></textarea>
+          <textarea name="message" rows="8" cols="80" class="m-form-textarea" required></textarea>
         </div>
 
         <br>
