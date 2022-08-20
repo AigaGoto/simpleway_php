@@ -1,37 +1,62 @@
 <?php
 // $_POST[]によって受け取ったデータを変数に代入
+$subject = $_POST['subject'];
 $fullname = $_POST['fullname'];
 $email = $_POST['email'];
+$tel = $_POST['tel'];
 $message = $_POST['message'];
 ?>
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
   <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="utf-8">
-    <title>サンプルページ</title>
+    <title>お問い合わせ</title>
   </head>
   <body>
+    <div class="container">
 
-    <h1>確認画面</h1>
+        <h1 class="title">確認画面</h1>
 
-    <form action="send.php" method="post">
-      <!-- $_POST[]の部分を変数に書き換える -->
-      名前<br>
-      <input type="text" name="fullname" value="<?php echo $fullname; ?>" disabled><br>
+        <div class="form-item">
+            <p class="form-item-name">件名</p>
+            <input type="text" name="subject" class="form-text" value="<?php echo $subject; ?>" disabled>
+        </div>
 
-      メールアドレス<br>
-      <input type="email" name="email" value="<?php echo $email; ?>" disabled><br>
+        <div class="form-item">
+            <p class="form-item-name">名前</p>
+            <input type="text" name="fullname" class="form-text" value="<?php echo $fullname; ?>" disabled>
+        </div>
 
-      お問い合わせ内容<br>
-      <textarea name="message" rows="8" cols="80" disabled><?php echo $message; ?></textarea><br>
+        <div class="form-item">
+            <p class="form-item-name">メールアドレス</p>
+            <input type="email" name="email" class="form-text" value="<?php echo $email; ?>" disabled>
+        </div>
 
-      <!-- 入力画面から受け取ったデータを格納 -->
-      <input type="hidden" name="fullname" value="<?php echo $fullname; ?>">
-      <input type="hidden" name="email" value="<?php echo $email; ?>">
-      <input type="hidden" name="message" value="<?php echo $message; ?>">
+        <div class="form-item">
+            <p class="form-item-name">電話番号</p>
+            <input type="tel" name="tel" class="form-text" value="<?php echo $tel ?>" disabled>
+        </div>
 
-      <input type="submit" value="送信">
-    </form>
+        <div class="form-item">
+            <p class="form-item-name">お問い合わせ内容</p>
+            <textarea name="message" rows="8" cols="80" class="m-form-textarea" disabled><?php echo $message; ?></textarea>
+        </div>
 
+        <form action="send.php" method="post">
+
+            <!-- 入力画面から受け取ったデータを格納 -->
+            <input type="hidden" name="subject" value="<?php echo $subject; ?>">
+            <input type="hidden" name="fullname" value="<?php echo $fullname; ?>">
+            <input type="hidden" name="email" value="<?php echo $email; ?>">
+            <input type="hidden" name="tel" value="<?php echo $tel; ?>">
+            <input type="hidden" name="message" value="<?php echo $message; ?>">
+
+            <div class="form-button">
+                <input type="button" value="修正" onclick="history.back(-1)" class="m-form-fix-button">
+                <input type="submit" value="送信" class="m-form-submit-button">
+            </div>
+        </form>
+    </div>
   </body>
 </html>
