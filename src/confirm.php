@@ -44,7 +44,7 @@ $message = $_POST['message'];
             <textarea name="message" rows="8" cols="80" class="m-form-textarea" disabled><?php echo $message; ?></textarea>
         </div>
 
-        <form action="send.php" method="post">
+        <form action="send_view.php" method="post">
 
             <!-- 入力画面から受け取ったデータを格納 -->
             <input type="hidden" name="subject" value="<?php echo $subject; ?>">
